@@ -270,6 +270,45 @@ body {
     }
 }
 
+@media (max-width: 400px) {
+    body {
+        .modal-wrap {
+            .modal {
+                width: 100%;
+                min-width: none;
+            }
+        }
+
+        .todo-container {
+            .add-task {
+                #new-task {
+                    padding: 5px 7px;
+                    font-size: 12px;
+                }
+                #add-btn {
+                    padding: 6px 10px;
+                    font-size: 12px;
+                }
+            }
+
+            .task-filters {
+                .filter-btn {
+                    padding: 5px 7px;
+                    font-size: 12px;
+                }
+            }
+
+            #task-list {
+                .task {
+                    .task-text {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+}
+
 
 @keyframes preloader {
     0%, 100% {
