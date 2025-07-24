@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <div id="preloader">
+        <div class="circle c_1"></div>
+        <div class="circle c_2"></div>
+        <div class="circle c_3"></div>
+    </div>
+
+    <div class="modal-wrap" id="task-modal">
+        <div class="modal">
+            <p class="title">Задача</p>
+            <p id="task-text">Позвонить маме</p>
+            
+            <div class="buttons">
+                <button id="delete-task-btn">Удалить</button>
+                <button id="change-status-btn">Выполнена</button>
+            </div>
+
+            <button id="close-btn">
+                <p>+</p>
+            </button>
+        </div>
+    </div>
+    
+    <div class="todo-container">
+        <h1>ToDo</h1>
+        
+        <div class="add-task">
+            <input type="text" id="new-task" placeholder="Добавить новую задачу...">
+            <button id="add-btn">Добавить</button>
+        </div>
+
+        <div class="task-filters">
+            <button class="filter-btn active" data-filter="all">Все</button>
+            <button class="filter-btn" data-filter="completed">Выполненные</button>
+            <button class="filter-btn" data-filter="active">Невыполненные</button>
+        </div>
+        
+        <ul id="task-list">
+            <!--    
+            <li class="task" data-id="1" data-status="0">
+                <span class="task-text">Закончить проект</span>
+            </li>
+            
+            <li class="task completed" data-id="2" data-status="1">
+                <span class="task-text">Купить продукты</span>
+            </li>
+            
+            <li class="task" data-id="3" data-status="0">
+                <span class="task-text">Позвонить маме</span>
+            </li>
+            
+            <li class="task completed" data-id="4" data-status="1">
+                <span class="task-text">Записаться к врачу</span>
+            </li>
+            
+            <li class="task" data-id="5" data-status="0">
+                <span class="task-text">Прочитать книгу</span>
+            </li>
+            -->
+        </ul>
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,281 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ececec;
+    margin: 0;
+    padding: 50px 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+    #preloader {
+        width: 100%;
+        height: 100%;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        z-index: 15;
+
+        background: rgba(0, 0, 0, 0.3);
+
+        .circle {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #ffffff;
+            position: relative;
+            margin: 10px;
+            
+            animation: preloader 1s infinite ease-in-out;
+
+            &.c_1 {
+                animation-delay: 0s;
+            }
+
+            &.c_2 {
+                animation-delay: 0.2s;
+            }
+
+            &.c_3 {
+                animation-delay: 0.4s;
+            }
+        }
+    }
+
+    .modal-wrap {
+        width: 100%;
+        height: 100%;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        display: none;
+        align-items: center;
+        justify-content: center;
+
+        background: rgba(0, 0, 0, 0.1);
+
+        z-index: 10;
+
+        .modal {
+            width: 30%;
+            min-width: 300px;
+            padding: 20px 50px;
+            background: #fff;
+            border-radius: 15px;
+            position: relative;
+
+            .title {
+                font-size: 18px;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            #task-text {
+                font-size: 16px;
+                margin-bottom: 20px;
+            }
+
+            .buttons {
+                display: flex;
+                flex-direction: row-reverse;
+
+                * {
+                    width: 100px;
+                    height: 30px;
+                    margin-left: 20px;
+
+                    color: #fff;
+                    font-size: 14px;
+                    letter-spacing: 1px;
+
+                    transition: 0.2s;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+
+                    &, &:active, &:focus {
+                        border: none;
+                        outline: none;
+                    }
+                }
+
+                #change-status-btn {
+                    background-color: #3498db;
+
+                    &:hover, &:active, &:focus {
+                        background-color: #38a2e9;
+                    }
+
+                    &.inactive {
+                        background: none;
+                        color: #04651b;
+                    }
+                }
+
+                #delete-task-btn {
+                    background-color: #b92929;
+
+                    &:hover, &:active, &:focus {
+                        background-color: #cd3a3a;
+                    }
+                }
+            }
+
+            #close-btn {
+                position: absolute;
+                top: 15px;
+                right: 10px;
+
+                border: none;
+                outline: none;
+                background: none;
+
+                cursor: pointer;
+
+                p {
+                    font-size: 26px;
+                    transform: rotate(45deg);
+                }
+            }
+        }
+    }
+
+    .todo-container {
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 500px;
+        padding: 25px;
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-weight: 600;
+            font-size:24px
+        }
+
+        .add-task {
+            display: flex;
+            margin-bottom: 20px;
+            gap: 10px;
+
+            #new-task {
+                flex: 1;
+                padding: 12px 15px;
+                border: 2px solid #e0e0e0;
+                border-radius: 8px;
+                font-size: 16px;
+                transition: border-color 0.3s;
+
+                &:focus {
+                    outline: none;
+                    border-color: #3498db;
+                }
+            }
+
+            #add-btn {
+                padding: 12px 20px;
+                background-color: #3498db;
+                color: white;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: 16px;
+                font-weight: 500;
+                transition: background-color 0.3s;
+
+                &:hover {
+                    background-color: #2980b9;
+                }
+            }
+        }
+
+        .task-filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+
+            .filter-btn {
+                padding: 8px 16px;
+                background-color: #e0e0e0;
+                color: #2c3e50;
+                border: none;
+                border-radius: 6px;
+                cursor: pointer;
+                font-size: 14px;
+                transition: all 0.3s;
+
+                &:hover {
+                    background-color: #d0d0d0;
+                }
+
+                &.active {
+                    background-color: #3498db;
+                    color: white;
+                }
+            }
+        }
+
+        #task-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+
+            .task {
+                padding: 15px;
+                border-radius: 8px;
+                margin-bottom: 8px;
+                transition: all 0.3s ease;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #f1f5f9;
+                    transform: translateY(-2px);                    
+                }
+
+                &:active {
+                    transform: translateY(0);
+                }
+
+                .task-text {
+                    font-size: 16px;
+                    color: #2c3e50;
+                    display: block;
+                }
+
+                &.completed {
+                    .task-text {
+                        color: #95a5a6;
+                        text-decoration: line-through;
+                    }
+                }
+
+                &.hidden {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+
+@keyframes preloader {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
