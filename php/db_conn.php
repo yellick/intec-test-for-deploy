@@ -1,7 +1,7 @@
 <?php
-    $host = 'localhost';
-    $username = 'root';
-    $password = '';
+    $host = 'mysql';
+    $username = 'admin';
+    $password = 'xDW8Nzmf';
     $database = 'tasks_db';
 
     $db = new mysqli($host, $username, $password, $database);
